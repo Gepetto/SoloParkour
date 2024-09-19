@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="SoloParkour: Constrained Reinforcement Learning for Visual Locomotion from Privileged Experience">
+  <meta name="keywords" content="Reinforcement Learning, Agile Locomotion, Visuomotor Control">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SoloParkour: Constrained Reinforcement Learning for Visual Locomotion from Privileged Experience</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/Solo.ico">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">SoloParkour: Constrained Reinforcement Learning for Visual Locomotion from Privileged Experience</h1>
+	  <div>
+            <a href="https://www.corl.org/" class="publication-venue">Conference on Robot Learning (CoRL) 2024</a>
+          </div>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://elliotchanesane31.github.io/">Elliot Chane-Sane</a><sup>*,1</sup>,</span>
+            <span class="author-block">
+              <a href="https://www.linkedin.com/in/joseph-amigo-bb876a174">Joseph Amigo</a><sup>*,1,2</sup>,</span>
+            <span class="author-block">
+              <a href="">Thomas Flayols</a><sup>1</sup>,
+	    </span> <!-- </br> -->
+            <span class="author-block">
+              <a href="https://righetti.github.io/">Ludovic Righetti</a><sup>2,3</sup>
+            </span>
+            <span class="author-block">
+              <a href="https://gepettoweb.laas.fr/index.php/Members/NicolasMansard">Nicolas Mansard</a><sup>1,3</sup>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup> LAAS-CNRS,</span>
+            <span class="author-block"><sup>2</sup> New York University,</span>
+            <span class="author-block"><sup>3</sup> ANITI</span>
+          </div>
+
+           <!-- TODO UPDATE LINKS -->
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href=""
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/Gepetto/SoloParkour"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Paper video. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+	      <!-- <h2 class="title is-3">Video</h2> -->
+        <div class="publication-video">
+          <iframe src="https://www.youtube.com/embed/?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+    <!--/ Paper video. -->
+
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+
+          <p>
+Parkour poses a significant challenge for legged robots, requiring navigation through complex environments with agility and precision based on limited sensory inputs.
+In this work,  we introduce a novel method for training end-to-end visual policies, from depth pixels to robot control commands, to achieve agile and safe quadruped locomotion.
+          </p>
+          <p>
+We formulate robot parkour as a constrained reinforcement learning (RL) problem designed to maximize the emergence of agile skills within the robot's physical limits while ensuring safety. 
+We first train a policy without vision using privileged information about the robot's surroundings. 
+We then generate experience from this privileged policy to warm-start a sample efficient off-policy RL algorithm from depth images.
+This allows the robot to adapt behaviors from this privileged experience to visual locomotion while circumventing the high computational costs of RL directly from pixels.
+          </p>
+          <p>
+We demonstrate the effectiveness of our method on a real Solo-12 robot, showcasing its capability to perform a variety of parkour skills such as walking, climbing, leaping, and crawling.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="is-centered has-text-centered" style="padding-bottom:1em">
+        <h2 class="title is-3">Method</h2>
+        <div class="publication-container">
+          <img src="./static/images/method.png" alt="Overview of the method">
+        </div>
+	<div class="content has-text-justified" style="text-align: left;">
+          <p>
+	  We frame agile locomotion over challenging terrains form depth images as a Constrained Reinforcement Learning (RL) problem.
+	  Our method employs both on-policy and off-policy versions of <a href="https://arxiv.org/abs/2403.18765">Constraints as Terminations (CaT)</a> to ensure constraint satisfaction.
+	  </p>
+	  <p>
+	  Training a policy end-to-end from depth images to robot actions using RL would ideally enable the robot to fully leverage its sensory inputs and hardware capabilities.
+	  However, rendering depth images in simulation is computationally expensive.
+	  We propose a two-stage approach that makes visual RL sample-efficient enough for effectively training agile and safe locomotion policies in the <a href="https://arxiv.org/abs/2108.10470">Isaac Gym</a> simulator:
+          </p>
+	  <ul style="text-align: left; list-style-position: inside;"> <!-- Adding a list for bullet points -->
+            <li>
+              <b>Stage 1</b>: We train a privileged policy that uses information with low computational overhead - a heightmap scan of the robot surroundings and the height of the nearby floating objects - instead of depth images.
+	      We employ <a href="https://arxiv.org/abs/1707.06347">PPO</a> with <a href="https://arxiv.org/abs/2403.18765">CaT</a> to maximize terrain traversal while adhering to safety and style constraints.
+            </li>
+            <li>
+              <b>Stage 2</b>: The Stage 1 policy is used to generate a dataset of rollouts, collecting depth images in the process.
+	      We leverage this privileged experience to warm-start a sample-efficient constrained off-policy RL algorithm based on <a href="https://arxiv.org/abs/2302.02948">RLPD</a> with <a href="https://arxiv.org/abs/2403.18765">CaT</a>.
+	      This allows us to directly train the visual policy to agressively maximize the constrained RL objective while circumventing the computational cost of visual RL from scratch.
+            </li>
+          </ul>
+	  <p>
+	  The resulting visual policy is directly transferred to the real Solo-12 robot equipped with an egocentric depth camera.
+	  </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{chanesane2024solo,
+    title = {SoloParkour: Constrained Reinforcement Learning for Visual Locomotion from Privileged Experience},
+    author = {Elliot Chane-Sane and Joseph Amigo and Thomas Flayols and Ludovic Righetti and Nicolas Mansard},
+    booktitle = {Conference on Robot Learning (CoRL)},
+    year = {2024},
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+	  Design and source code from <a href="https://nerfies.github.io/"><span class="dnerf">Nerfies website</span></a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
