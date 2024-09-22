@@ -1,0 +1,26 @@
+params:
+  seed: ${...seed}
+
+  algo:
+    name: cat_ddpg_demos_rnn_vision_continuous
+
+  config:
+    name: ${resolve_default:SoloParkour,${....experiment}}
+    full_experiment_name: ${.name}
+    env_name: rlgpu
+    gamma: 0.99
+    tau: 0.05
+    critic_learning_rate: 3.e-4
+    actor_learning_rate: 5.e-4
+    total_timesteps: 2e8
+    buffer_size: 4999680 # % (5 * 256) = 0
+    learning_starts: 25e3
+    policy_frequency: 2
+    batch_size: 128
+    seq_len: 50
+    policy_noise: 0.8
+    noise_clip: 0.2
+    demos_rb_path: "path/to/privileged/experience"
+    horizon_length: 24 # 24 for t = 0.02 (decimation = 4)
+
+    max_epochs: 5000
