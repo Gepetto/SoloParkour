@@ -17,7 +17,7 @@
 python train.py task=SoloParkour headless=True task.env.control.damping_curriculum.enable=True
 ```
 
-2. Generate the dataset of prvileged experience:
+2. Generate the dataset of privileged experience:
 ```bash
 # replace with the correct path to the privileged policy weights
 policy_path=path/to/cleanrl_model.pt
@@ -25,7 +25,7 @@ policy_path=path/to/cleanrl_model.pt
 python train.py task=SoloParkour train=SoloParkourDDPG_demos_generate headless=True task.env.numEnvs=256 task.env.enableCameraSensors=True task.env.depth.use_depth=True task.env.terrain.maxInitMapLevel=9 train.params.config.target_policy_path=${policy_path}
 ```
 
-3. Train the visual (Stage 2) policy from privileged expererience:
+3. Train the visual (Stage 2) policy from privileged experience:
 ```bash
 # replace with the correct path to the privileged experience folder
 demo_path=path/to/folder/ # folder which contains rb_demos.pkl
