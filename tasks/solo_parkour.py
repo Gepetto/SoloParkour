@@ -744,7 +744,7 @@ class SoloParkour(VecTask):
         lin_vel = self.root_states[:, 7:9]
         no_move=  (torch.norm(self.commands[:, :2], dim=1) < self.vel_deadzone).float().unsqueeze(1)
         direction = no_move*torch.nn.functional.normalize(-lin_vel) + (1-no_move)*torch.nn.functional.normalize(self.commands[:, :2])
-        rew_vel = (direction * lin_vel).sum(1)
+        rew_vel = (direction * lin_vel).sum(1).clamp(max=command)
 
         # Survival bonus
         rew_survival = self.rew_scales["survivalBonus"]
