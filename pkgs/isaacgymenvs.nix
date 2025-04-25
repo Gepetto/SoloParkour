@@ -7,7 +7,7 @@
 
   # keep-sorted start
   gym,
-  hydra,
+  hydra-core,
   jinja2,
   lxml,
   omegaconf,
@@ -42,9 +42,10 @@ buildPythonPackage rec {
   postPatch = ''
     substituteInPlace setup.py \
       --replace "trimesh==3.23.5" "trimesh" \
-      --replace "gym==0.23.1" "gym" \
       --replace '"hydra-core>=1.2",' ""
   '';
+
+  # --replace "gym==0.23.1" "gym" \
 
   # ImportError: PyTorch was imported before isaacgym modules.  Please import torch after isaacgym modules.
   #     substituteInPlace isaacgymenvs/tasks/ant.py \
@@ -59,7 +60,7 @@ buildPythonPackage rec {
   propagatedBuildInputs = [
     # keep-sorted start
     gym
-    hydra
+    hydra-core
     jinja2
     lxml
     omegaconf

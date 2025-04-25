@@ -35,6 +35,10 @@ buildPythonPackage rec {
     hash = "sha256-qWDdMOssLPPCUBX85m7hjMPYLhSxk8C+0G2Ztr2jeAw=";
   };
 
+  postPatch = ''
+    substituteInPlace setup.py --replace "watchdog>=2.1.9,<3.0.0" "watchdog"
+  '';
+
   build-system = [
     poetry-core
   ];

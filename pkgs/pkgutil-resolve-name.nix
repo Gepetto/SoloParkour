@@ -1,3 +1,4 @@
+# Added in nixpkgs 23.11
 {
   buildPythonPackage,
   fetchPypi,

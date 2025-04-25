@@ -41,6 +41,9 @@ buildPythonPackage rec {
       gym_37.so \
       rlgpu_37.so 
     popd
+
+    # Fix for numpy 1.24
+    substituteInPlace isaacgym/torch_utils.py --replace "np.float" "float"
   '';
 
   nativeBuildInputs = [
